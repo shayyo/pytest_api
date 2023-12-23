@@ -18,14 +18,11 @@ pipeline {
                 script {
                     // Install and set up Python using pyenv
                     sh '''
-                        export PATH="/home/jenkins/.pyenv/bin:$PATH"
-                        eval "$(pyenv init --path)"
-                        eval "$(pyenv virtualenv-init -)"
-                        pyenv install $PYENV_VERSION
-                        pyenv global $PYENV_VERSION
+                        python3 -m venv venv
+                        source venv/bin/activate
+                        pip3 install -r requirements.txt
+                        pytest
                     '''
-                    // Install required Python packages
-                    sh 'pip install -r requirements.txt'
                 }
             }
         }
