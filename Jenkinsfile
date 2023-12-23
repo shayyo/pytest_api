@@ -37,9 +37,7 @@ pipeline {
     post {
         always {
             // Clean up and deactivate virtual environment
-            script {
-                sh 'pyenv deactivate'
-            }
+            sh 'echo "clean here"'
        }
     }
 }
