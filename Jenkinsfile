@@ -1,44 +1,21 @@
 pipeline {
-    agent { label 'docker' }
-    
-    environment {
-        PYENV_VERSION = '3.8.5'  // Set your Python version here
-    }
+    agent any
 
     stages {
-        stage('Checkout') {
+        stage('Build') {
             steps {
-                // Checkout source code from the specified Git repository
-                git 'https://github.com/shayyo/pytest_api.git'
+                echo 'Building..'
             }
         }
-
-        stage('Set up Python') {
+        stage('Test') {
             steps {
-                // Install and set up Python using venv
-                sh '''
-                    python3 -m venv venv
-                    source venv/bin/activate
-                    pip3 install -r requirements.txt
-                '''
+                echo 'Testing..'
             }
         }
-
-        stage('Run Tests') {
+        stage('Deploy') {
             steps {
-                script {
-                    // Run pytest
-                    sh 'pytest'
-                }
+                echo 'Deploying....'
             }
         }
-    }
-
-    post {
-        always {
-            // Clean up and deactivate virtual environment
-            sh 'echo "clean here"'
-       }
     }
 }
-
