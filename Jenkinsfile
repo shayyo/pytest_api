@@ -12,7 +12,7 @@ pipeline {
                 sh 'ls -l'
                 sh 'sleep 5'
                 sh 'echo "${PWD}"'
-                sh 'source venv/bin/activate'
+                sh '. venv/bin/activate'
                 sh 'pip3 install -r requirements.txt'
             }
         }
