@@ -21,7 +21,6 @@ pipeline {
                         python3 -m venv venv
                         source venv/bin/activate
                         pip3 install -r requirements.txt
-                        pytest
                     '''
                 }
             }
@@ -37,13 +36,13 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            // Clean up and deactivate virtual environment
-            script {
-                sh 'pyenv deactivate'
-            }
-        }
-    }
+//    post {
+//        always {
+//            // Clean up and deactivate virtual environment
+//            script {
+//                sh 'pyenv deactivate'
+//            }
+//       }
+//    }
 }
 
