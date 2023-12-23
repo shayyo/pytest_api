@@ -15,14 +15,12 @@ pipeline {
 
         stage('Set up Python') {
             steps {
-                script {
-                    // Install and set up Python using venv
-                    sh '''
-                        python3 -m venv venv
-                        source venv/bin/activate
-                        pip3 install -r requirements.txt
-                    '''
-                }
+                // Install and set up Python using venv
+                sh '''
+                    python3 -m venv venv
+                    source venv/bin/activate
+                    pip3 install -r requirements.txt
+                '''
             }
         }
 
