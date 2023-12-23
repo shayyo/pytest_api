@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label: docker 'docker' }
     
     environment {
         PYENV_VERSION = '3.8.5'  // Set your Python version here
