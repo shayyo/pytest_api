@@ -26,6 +26,7 @@ pipeline {
         }
         stage('Test') {
             steps {
+                sh 'python3 get_token.py 3.75.179.242 $USERNAME $PASSWORD'
                 sh '~/.local/bin/pytest'
             }
         }
