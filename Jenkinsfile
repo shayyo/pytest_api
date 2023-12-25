@@ -8,9 +8,11 @@ pipeline {
     stages {
         stage('cred') {
             steps {
-                withCredentials([usernamePassword(credentialsId: '1238281f-93c6-417f-9675-854d7c6c29ca', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh 'echo "The user is => $PASSWORD"'
-                    sh 'echo "The password is => $USERNAME"'
+                scripts {
+                    withCredentials([usernamePassword(credentialsId: '1238281f-93c6-417f-9675-854d7c6c29ca', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                        sh 'echo "The user is => $PASSWORD"'
+                        sh 'echo "The password is => $USERNAME"'
+                    }
                 }
             }
         }
