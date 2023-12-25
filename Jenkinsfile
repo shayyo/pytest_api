@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         PYENV_VERSION = '3.8.5'  // Set your Python version here
-        MY_CREDENTIALS = credentials('1238281f-93c6-417f-9675-854d7c6c29ca')
     }
     
     stages {
