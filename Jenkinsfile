@@ -19,15 +19,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: '1238281f-93c6-417f-9675-854d7c6c29ca', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    // Your steps that require credentials go here
-                        sh "echo 'Username: $USERNAME'"
-                        sh "echo 'Password: $PASSWORD'"
-                    }
-                    sh 'python3 get_token.py "${aqua_ip_address}" "${USERNAME}" "${PASSWORSD}"'
-                    //sh '~/.local/bin/pytest'
-                    }
+                sh 'python3 get_token.py "${API_IP_ADDR}" "${API_USERNAME}" "${API_PASSWORD}"'
+                //sh '~/.local/bin/pytest'
             }
         }
         stage('Deploy') {
