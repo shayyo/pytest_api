@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'your-credentials-id', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: '1238281f-93c6-417f-9675-854d7c6c29ca', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 // Your steps that require credentials go here
                     sh "echo 'Username: $USERNAME'"
                     sh "echo 'Password: $PASSWORD'"
