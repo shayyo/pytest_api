@@ -26,11 +26,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                script {
-                    sh 'python3 get_token.py 3.75.179.242 $USERNAME $PASSWORD'
-                    //sh '~/.local/bin/pytest'
+                sh 'python3 get_token.py 3.75.179.242 "${USERNAME}" "${PASSWORD}"'
+                //sh '~/.local/bin/pytest'
                 }
-            }
         }
         stage('Deploy') {
             steps {
