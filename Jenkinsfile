@@ -3,17 +3,10 @@ pipeline {
 
     environment {
         PYENV_VERSION = '3.8.5'  // Set your Python version here
+        MY_CREDENTIALS = credentials('1238281f-93c6-417f-9675-854d7c6c29ca')
     }
     
     stages {
-        stage('cred') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: '1238281f-93c6-417f-9675-854d7c6c29ca', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh 'echo "The user is => $PASSWORD"'
-                    sh 'echo "The password is => $USERNAME"'
-                }
-            }
-        }
         stage('set up python') {
             steps {
                 sh 'python3 -m venv venv'
@@ -26,6 +19,11 @@ pipeline {
         }
         stage('Test') {
             steps {
+                withCredentials([usernamePassword(credentialsId: 'your-credentials-id', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                // Your steps that require credentials go here
+                    sh "echo 'Username: $USERNAME'"
+                    sh "echo 'Password: $PASSWORD'"
+                }
                 sh 'python3 get_token.py 3.75.179.242 "${USERNAME}" "${PASSWORD}"'
                 //sh '~/.local/bin/pytest'
                 }
