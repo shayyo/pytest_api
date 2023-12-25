@@ -25,7 +25,7 @@ pipeline {
                         sh "echo 'Username: $USERNAME'"
                         sh "echo 'Password: $PASSWORD'"
                     }
-                    sh 'python3 get_token.py 3.75.179.242 "${USERNAME}" "${PASSWORD}"'
+                    sh 'python3 get_token.py "${aqua_ip_address}" "${USERNAME}" "${PASSWORD}"'
                     //sh '~/.local/bin/pytest'
                     }
             }
