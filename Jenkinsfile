@@ -16,10 +16,10 @@ pipeline {
                 sh 'pip3 install -r requirements.txt'
             }
         }
-        stage('Test') {
+        stage('get token from API server') {
             steps {
-                sh 'python3 get_token.py "${API_IP_ADDR}" "${API_USERNAME}" "${API_PASSWORD}"'
-                //sh '~/.local/bin/pytest'
+                sh 'API_TOKEN = python3 get_token.py "${API_IP_ADDR}" "${API_USERNAME}" "${API_PASSWORD}"'
+                sh 'echo "the token is: ${API_TOKEN}"'
             }
         }
         stage('Deploy') {
