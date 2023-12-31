@@ -16,9 +16,11 @@ if i.status_code == 200:
     print("Success")
 else:
     print("Error")
+    sys.exit(1)
 
 r = requests.get(f"http://{HOST_URL}:8080/api/v2/containers?status=running&container_type=containers&page=1&pagesize=50", headers=HEADERS)
 if r.status_code == 200:
     print("Success")
 else:
     print("Error")
+    sys.exit(1)
