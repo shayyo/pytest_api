@@ -9,8 +9,6 @@ pipeline {
         stage('set up python') {
             steps {
                 sh 'python3 -m venv venv'
-                sh 'ls -l'
-                sh 'echo "${PWD}"'
                 sh '. venv/bin/activate'
                 sh 'PATH=$PATH:~/.local/bin'
                 sh 'pip3 install -r requirements.txt'
