@@ -12,5 +12,5 @@ TOKEN = r.json().get('token')
 HEADERS = {"Accept": "application/json", "Authorization": f"Bearer {TOKEN}"}
 
 # add image for scanning
-image_data = '{"images":[{"registry":"Docker Hub","repository":"centos:latest","tag":"latest"}]}'
+image_data = '{"images":[{"registry":"Docker Hub","repository":"centos:latest"}]}'
 r = requests.post(f"http://{HOST_URL}:8080/api/v1/images", headers=HEADERS, json=json.loads(image_data)) 
