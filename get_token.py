@@ -17,4 +17,4 @@ r = requests.post(f"http://{HOST_URL}:8080/api/v1/images", headers=HEADERS, json
 if r.status_code != 200:
     sys.exit(1)
 else:
-    print("Success")
+    print("Image scan was added successfully")
