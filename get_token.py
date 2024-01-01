@@ -32,8 +32,8 @@ else:
 # test adding webhook integration
 webhook_add_data = '{"properties":{"use_mx":false,"url":"https://webhook.site/c726d66d-047f-4253-b6ca-0b30670c7a98"},"type":"webhook","name":"my_web_hook"}'
 r = requests.post(f"http://{HOST_URL}:8080/api/v2/notification/outputs", headers=HEADERS, json=json.loads(webhook_add_data))
-if r.status_code != 200:
-    print("ERROR adding webhook", r.text, r.status_code)
+if r.status_code != 201:
+    print("ERROR: ", r.text, r.status_code)
     sys.exit(1)
 else:
     print("Webhook was added successfully")
