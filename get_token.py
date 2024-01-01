@@ -21,9 +21,18 @@ else:
 
 
 # test webhook integration
-webhook_data = '{"type":"webhook","use_mx":false,"name":"my_web_hook","url":"https://webhook.site/c726d66d-047f-4253-b6ca-0b30670c7a98"}'
-r = requests.post(f"http://{HOST_URL}:8080/api/v2/notification/outputs/test", headers=HEADERS, json=json.loads(webhook_data))
+webhook_test_data = '{"type":"webhook","use_mx":false,"name":"my_web_hook","url":"https://webhook.site/c726d66d-047f-4253-b6ca-0b30670c7a98"}'
+r = requests.post(f"http://{HOST_URL}:8080/api/v2/notification/outputs/test", headers=HEADERS, json=json.loads(webhook_test_data))
 if r.status_code != 200:
     sys.exit(1)
 else:
-    print("Webhoot test was successful")
+    print("Webhook test was successful")
+
+
+# test adding webhook integration
+webhook_add_data = '{"properties":{"use_mx":false,"url":"https://webhook.site/c726d66d-047f-4253-b6ca-0b30670c7a98"},"type":"webhook","name":"my_web_hook"}'
+r = requests.post(f"http://{HOST_URL}:8080/api/v2/notification/outputs", headers=HEADERS, json=json.loads(webhook_add_data))
+if r.status_code != 200:
+    sys.exit(1)
+else:
+    print("Webhook was added successfully")
