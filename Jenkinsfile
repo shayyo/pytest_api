@@ -26,7 +26,7 @@ pipeline {
         }
         stage('get token from API server') {
             steps {
-                sh 'python3 get_token.py "${API_IP_ADDR}" "${API_USERNAME}" "${API_PASSWORD}"'
+                sh 'python3 get_token.py "${API_IP_ADDR}" "${API_USERNAME}" "${API_PASSWORD}" "${AUTHORIZATION_HEADER}"'
             }
         }
         stage('Deploy') {
