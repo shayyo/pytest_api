@@ -5,6 +5,7 @@ import json
 HOST_URL = sys.argv[1]
 USERNAME = sys.argv[2]
 PASSWORD = sys.argv[3]
+AUTHENTICATION_HEADER = sys.argv[4]
 
 r = requests.post(f"http://{HOST_URL}:8080/api/v1/login", json={"id":f"{USERNAME}", "password":f"{PASSWORD}"})
 if r.status_code != 200:
