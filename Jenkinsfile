@@ -25,6 +25,7 @@ pipeline {
         }
         stage('get token from API server') {
             steps {
+                sh 'echo "========== ${API_IP_ADDR}"'
                 sh 'python3 get_token.py "${API_IP_ADDR}" "${API_USERNAME}" "${API_PASSWORD}"'
             }
         }
