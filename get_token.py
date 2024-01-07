@@ -7,7 +7,11 @@ USERNAME = sys.argv[2]
 PASSWORD = sys.argv[3]
 
 r = requests.post(f"http://{HOST_URL}:8080/api/v1/login", json={"id":f"{USERNAME}", "password":f"{PASSWORD}"})
-TOKEN = r.json().get('token')
+if r.status_code != 200:
+    print(r.text)
+    sys.exit(1)
+else:
+    TOKEN = r.json().get('token')
 
 HEADERS = {"Accept": "application/json", "Authorization": f"Bearer {TOKEN}"}
 
