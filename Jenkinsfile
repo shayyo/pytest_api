@@ -5,9 +5,9 @@ pipeline {
     }
     
     parameters {
-        string(name: 'HOST_URL', defaultValue: '172.30.2.2', description: 'The URL of the API server')
-        choice(name: 'USERNAME', choices: ['administrator', 'root', 'user2'], description: 'Username of the API server')
-        password(name: 'PASSWORD', defaultValue: 'my_password', description: 'Enter a password')
+        string(name: 'API_IP_ADDR}', defaultValue: '172.30.2.2', description: 'The URL of the API server')
+        choice(name: 'API_USERNAME', choices: ['administrator', 'root', 'user2'], description: 'Username of the API server')
+        password(name: 'API_PASSWORD', defaultValue: 'my_password', description: 'Enter a password')
     }
 
     environment {
