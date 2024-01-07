@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'docker' }
     options {
-        timeout(time: 3, unit: 'SECONDS')
+        timeout(time: 180, unit: 'SECONDS')
     }
     
     parameters {
