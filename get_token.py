@@ -12,6 +12,7 @@ if r.status_code != 200:
     sys.exit(1)
 else:
     TOKEN = r.json().get('token')
+    print(TOKEN)
 
 HEADERS = {"Accept": "application/json", "Authorization": f"Bearer {TOKEN}"}
 
