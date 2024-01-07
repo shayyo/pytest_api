@@ -1,5 +1,14 @@
 pipeline {
     agent { label 'docker' }
+    options {
+        timeout(time: 3, unit: 'SECONDS')
+    }
+    
+    parameters {
+        string(name: 'API_SERVER_IP', defaultValue: '172.30.2.2', description: 'The URL of the API server')
+        choice(name: 'USERS', choices: ['administrator', 'root', 'user2'], description: 'Username of the API server')
+        password(name: 'PASSWORD', defaultValue: 'my_password', description: 'Enter a password')
+    }
 
     environment {
         PYENV_VERSION = '3.8.5'  // Set your Python version here
