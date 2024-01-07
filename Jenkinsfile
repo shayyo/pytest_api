@@ -8,6 +8,7 @@ pipeline {
         string(name: 'API_IP_ADDR', defaultValue: '172.30.2.2', description: 'The URL of the API server')
         choice(name: 'API_USERNAME', choices: ['administrator', 'root', 'user2'], description: 'Username of the API server')
         password(name: 'API_PASSWORD', defaultValue: 'my_password', description: 'Enter a password')
+        string(name: 'AUTHORIZATION_HEADER', defaultValue: 'Authorization', description: 'Header of authorization to use in API requests')
     }
 
     environment {
