@@ -15,7 +15,7 @@ else:
     TOKEN = r.json().get('token')
     print(TOKEN)
 
-HEADERS = {"Accept": "application/json", "Authorization": f"Bearer {TOKEN}"}
+HEADERS = {"Accept": "application/json", f"AUTHENTICATION_HEADER": f"Bearer {TOKEN}"}
 
 # add image for scanning
 image_data = '{"images":[{"registry":"Docker Hub","repository":"centos", "tag": "latest"}]}'
