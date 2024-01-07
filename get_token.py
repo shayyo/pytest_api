@@ -9,11 +9,9 @@ AUTHORIZATION_HEADER = sys.argv[4]
 
 r = requests.post(f"http://{HOST_URL}:8080/api/v1/login", json={"id":f"{USERNAME}", "password":f"{PASSWORD}"})
 if r.status_code != 200:
-    print(r.text)
     sys.exit(1)
 else:
     TOKEN = r.json().get('token')
-    print(TOKEN)
 
 HEADERS = {"Accept": "application/json", f"{AUTHORIZATION_HEADER}": f"Bearer {TOKEN}"}
 
