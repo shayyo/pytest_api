@@ -18,7 +18,7 @@ pipeline {
     stages {
         stage('echo params') {
             steps {
-                sh 'echo "Hello ${params.API_IP_ADDR}"'
+                echo "Hello ${params.API_IP_ADDR}"
             }
         }
         stage('set up python') {
