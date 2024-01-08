@@ -16,11 +16,6 @@ pipeline {
     }
     
     stages {
-        stage('echo params') {
-            steps {
-                echo "Hello ${params.API_IP_ADDR}"
-            }
-        }
         stage('set up python') {
             steps {
                 sh 'python3 -m venv venv'
